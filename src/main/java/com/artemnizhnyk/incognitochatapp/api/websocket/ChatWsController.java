@@ -7,17 +7,24 @@ import org.springframework.messaging.handler.annotation.DestinationVariable;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.messaging.simp.annotation.SubscribeMapping;
-import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RestController;
 
 @RequiredArgsConstructor
-@Controller
+@RestController
 public class ChatWsController {
 
     private final SimpMessagingTemplate messagingTemplate;
-    public static final String FETCH_CREATE_CREATE_CHAT = "/topic/chat.{chat_name}create";
-    public static final String CREATE_CHAT = "/topic.chat.create.event";
 
-    @MessageMapping(FETCH_CREATE_CREATE_CHAT)
+    public static final String FETCH_CREATE_CHAT_EVENT = "/topic/chats.create.event";
+    public static final String FETCH_DELETE_CHAT_EVENT = "/topic/chats.delete.event";
+
+    public static final String SEND_MESSAGE_TO_ALL = "/topic/chats.{chat_id}.messages.send";
+    public static final String SEND_MESSAGE_TO_PARTICIPANT = "/topic/chats.{chat_id}.participants.{participant_id}.messages.send";
+
+    public static final String FETCH_MESSAGES = "/topic/chats.{chat_id}.messages";
+    public static final String FETCH_PERSONAL_MESSAGES = "/topic/chats.{chat_id}.participants.{participant_id}";
+
+    @MessageMapping(FETCH_CREATE_CHAT_EVENT)
     public void createChat(@DestinationVariable("chat_name") final String chatName) {
 
         Chat chat = Chat.builder()
