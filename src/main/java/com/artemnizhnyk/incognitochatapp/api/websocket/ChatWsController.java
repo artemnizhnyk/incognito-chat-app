@@ -2,8 +2,10 @@ package com.artemnizhnyk.incognitochatapp.api.websocket;
 
 import com.artemnizhnyk.incognitochatapp.api.domain.Chat;
 import com.artemnizhnyk.incognitochatapp.api.dto.ChatDto;
+import com.artemnizhnyk.incognitochatapp.api.dto.MessageDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.messaging.handler.annotation.DestinationVariable;
+import org.springframework.messaging.handler.annotation.Header;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.messaging.simp.annotation.SubscribeMapping;
@@ -28,7 +30,6 @@ public class ChatWsController {
 
     @MessageMapping(CREATE_CHAT)
     public void createChat(final String chatName) {
-
         Chat chat = Chat.builder()
                 .name(chatName)
                 .build();
@@ -50,9 +51,54 @@ public class ChatWsController {
         return null;
     }
 
+    @MessageMapping(SEND_MESSAGE_TO_ALL)
+    public void sendMessageToAll(
+            @DestinationVariable("chat_id") final String chatId,
+            @Header final String simpSessionId,
+            final String message
+    ) {
+        messagingTemplate.convertAndSend(
+                getFetchMessagesDestination(chatId),
+                MessageDto.builder()
+                        .from(simpSessionId)
+                        .message(message)
+                        .build()
+        );
+    }
+
+    @MessageMapping(SEND_MESSAGE_TO_PARTICIPANT)
+    public void sendMessageToParticipant(
+            @DestinationVariable("chat_id") final String chatId,
+            @DestinationVariable("participant_id") final String participantId,
+            @Header final String simpSessionId,
+            final String message
+    ) {
+        messagingTemplate.convertAndSend(
+                getFetchPersonalMessagesDestination(chatId, participantId),
+                MessageDto.builder()
+                        .from(simpSessionId)
+                        .message(message)
+                        .build()
+        );
+    }
+
     @SubscribeMapping(FETCH_MESSAGES)
-    public ChatDto fetchMessages() {
+    public MessageDto fetchMessages() {
         return null;
     }
 
+    @SubscribeMapping(FETCH_PERSONAL_MESSAGES)
+    public MessageDto fetchPersonalMessages() {
+        return null;
+    }
+
+    private static String getFetchMessagesDestination(final String chatId) {
+        return FETCH_MESSAGES.replace("{chat_id}", chatId);
+    }
+
+    private static String getFetchPersonalMessagesDestination(String chatId, String participantId) {
+        return FETCH_PERSONAL_MESSAGES
+                .replace("{chat_id}", chatId)
+                .replace("{participant_id}", participantId);
+    }
 }
