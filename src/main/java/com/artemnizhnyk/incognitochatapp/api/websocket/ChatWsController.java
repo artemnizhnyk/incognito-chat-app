@@ -15,6 +15,8 @@ public class ChatWsController {
 
     private final SimpMessagingTemplate messagingTemplate;
 
+    public static final String CREATE_CHAT = "/topic/chats.create";
+
     public static final String FETCH_CREATE_CHAT_EVENT = "/topic/chats.create.event";
     public static final String FETCH_DELETE_CHAT_EVENT = "/topic/chats.delete.event";
 
@@ -24,8 +26,8 @@ public class ChatWsController {
     public static final String FETCH_MESSAGES = "/topic/chats.{chat_id}.messages";
     public static final String FETCH_PERSONAL_MESSAGES = "/topic/chats.{chat_id}.participants.{participant_id}";
 
-    @MessageMapping(FETCH_CREATE_CHAT_EVENT)
-    public void createChat(@DestinationVariable("chat_name") final String chatName) {
+    @MessageMapping(CREATE_CHAT)
+    public void createChat(final String chatName) {
 
         Chat chat = Chat.builder()
                 .name(chatName)
@@ -43,8 +45,13 @@ public class ChatWsController {
         );
     }
 
-    @SubscribeMapping(CREATE_CHAT)
-    public ChatDto fetchCreateEvent() {
+    @SubscribeMapping(FETCH_CREATE_CHAT_EVENT)
+    public ChatDto fetchCreateChatEvent() {
+        return null;
+    }
+
+    @SubscribeMapping(FETCH_MESSAGES)
+    public ChatDto fetchMessages() {
         return null;
     }
 
