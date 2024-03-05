@@ -3,18 +3,20 @@ package com.artemnizhnyk.incognitochatapp.api.websocket;
 import com.artemnizhnyk.incognitochatapp.api.domain.Chat;
 import com.artemnizhnyk.incognitochatapp.api.dto.ChatDto;
 import com.artemnizhnyk.incognitochatapp.api.dto.MessageDto;
+import com.artemnizhnyk.incognitochatapp.api.service.ParticipantService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.messaging.handler.annotation.DestinationVariable;
 import org.springframework.messaging.handler.annotation.Header;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.messaging.simp.annotation.SubscribeMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Controller;
 
 @RequiredArgsConstructor
-@RestController
+@Controller
 public class ChatWsController {
 
+    private final ParticipantService participantService;
     private final SimpMessagingTemplate messagingTemplate;
 
     public static final String CREATE_CHAT = "/topic/chats.create";

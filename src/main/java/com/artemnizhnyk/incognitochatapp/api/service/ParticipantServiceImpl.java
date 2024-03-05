@@ -1,12 +1,16 @@
 package com.artemnizhnyk.incognitochatapp.api.service;
 
 import com.artemnizhnyk.incognitochatapp.api.domain.Participant;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
 import org.springframework.web.socket.messaging.AbstractSubProtocolEvent;
 import org.springframework.web.socket.messaging.SessionDisconnectEvent;
 import org.springframework.web.socket.messaging.SessionUnsubscribeEvent;
 
 import java.util.stream.Stream;
 
+@RequiredArgsConstructor
+@Service
 public class ParticipantServiceImpl implements ParticipantService {
 
     @Override
