@@ -10,6 +10,8 @@ import java.util.stream.Stream;
 @RequiredArgsConstructor
 @Service
 public class ChatServiceImpl implements ChatService {
+
+
     @Override
     public void createChat(final String chatName) {
 
