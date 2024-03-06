@@ -1,8 +1,8 @@
-package com.artemnizhnyk.incognitochatapp.api.websocket;
+package com.artemnizhnyk.incognitochatapp.api.web.websocket;
 
-import com.artemnizhnyk.incognitochatapp.api.domain.Chat;
-import com.artemnizhnyk.incognitochatapp.api.dto.ChatDto;
-import com.artemnizhnyk.incognitochatapp.api.dto.MessageDto;
+import com.artemnizhnyk.incognitochatapp.api.domain.model.Chat;
+import com.artemnizhnyk.incognitochatapp.api.web.dto.ChatDto;
+import com.artemnizhnyk.incognitochatapp.api.web.dto.MessageDto;
 import com.artemnizhnyk.incognitochatapp.api.service.ParticipantService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.messaging.handler.annotation.DestinationVariable;

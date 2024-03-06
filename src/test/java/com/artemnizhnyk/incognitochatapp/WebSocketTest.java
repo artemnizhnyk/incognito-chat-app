@@ -1,6 +1,6 @@
 package com.artemnizhnyk.incognitochatapp;
 
-import com.artemnizhnyk.incognitochatapp.api.websocket.ChatWsController;
+import com.artemnizhnyk.incognitochatapp.api.web.websocket.ChatWsController;
 import com.artemnizhnyk.incognitochatapp.config.WebSocketConfig;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.*;

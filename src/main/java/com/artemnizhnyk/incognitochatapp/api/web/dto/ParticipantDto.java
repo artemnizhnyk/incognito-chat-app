@@ -1,4 +1,4 @@
-package com.artemnizhnyk.incognitochatapp.api.dto;
+package com.artemnizhnyk.incognitochatapp.api.web.dto;
 
 import lombok.Builder;
 import lombok.Getter;

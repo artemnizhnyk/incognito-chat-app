@@ -1,6 +1,6 @@
-package com.artemnizhnyk.incognitochatapp.api.websocket;
+package com.artemnizhnyk.incognitochatapp.api.web.websocket;
 
-import com.artemnizhnyk.incognitochatapp.api.dto.ParticipantDto;
+import com.artemnizhnyk.incognitochatapp.api.web.dto.ParticipantDto;
 import org.springframework.messaging.simp.annotation.SubscribeMapping;
 import org.springframework.stereotype.Controller;
 

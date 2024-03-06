@@ -1,8 +1,8 @@
 package com.artemnizhnyk.incognitochatapp.api.service;
 
-import com.artemnizhnyk.incognitochatapp.api.domain.Participant;
-import com.artemnizhnyk.incognitochatapp.api.dto.ParticipantDto;
-import com.artemnizhnyk.incognitochatapp.api.websocket.ParticipantWsController;
+import com.artemnizhnyk.incognitochatapp.api.domain.model.Participant;
+import com.artemnizhnyk.incognitochatapp.api.web.dto.ParticipantDto;
+import com.artemnizhnyk.incognitochatapp.api.web.websocket.ParticipantWsController;
 import lombok.RequiredArgsConstructor;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.stereotype.Service;

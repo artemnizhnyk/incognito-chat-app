@@ -1,6 +1,6 @@
 package com.artemnizhnyk.incognitochatapp.api.service;
 
-import com.artemnizhnyk.incognitochatapp.api.domain.Participant;
+import com.artemnizhnyk.incognitochatapp.api.domain.model.Participant;
 import org.springframework.web.socket.messaging.AbstractSubProtocolEvent;
 import org.springframework.web.socket.messaging.SessionDisconnectEvent;
 import org.springframework.web.socket.messaging.SessionUnsubscribeEvent;

@@ -1,4 +1,4 @@
-package com.artemnizhnyk.incognitochatapp.api.domain;
+package com.artemnizhnyk.incognitochatapp.api.domain.model;
 
 import lombok.*;
 

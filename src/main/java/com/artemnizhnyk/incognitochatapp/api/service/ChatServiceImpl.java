@@ -1,6 +1,6 @@
 package com.artemnizhnyk.incognitochatapp.api.service;
 
-import com.artemnizhnyk.incognitochatapp.api.domain.Chat;
+import com.artemnizhnyk.incognitochatapp.api.domain.model.Chat;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
