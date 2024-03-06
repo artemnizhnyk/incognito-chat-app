@@ -17,6 +17,7 @@ import java.util.stream.Stream;
 @Service
 public class ParticipantServiceImpl implements ParticipantService {
 
+
     private final SimpMessagingTemplate messagingTemplate;
 
     @Override
