@@ -1,4 +1,4 @@
-package com.artemnizhnyk.incognitochatapp.api.web.websocket;
+package com.artemnizhnyk.incognitochatapp.api.web.controller.websocket;
 
 import com.artemnizhnyk.incognitochatapp.api.domain.model.Chat;
 import com.artemnizhnyk.incognitochatapp.api.web.dto.ChatDto;

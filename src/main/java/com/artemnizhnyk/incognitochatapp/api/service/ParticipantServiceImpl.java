@@ -3,7 +3,7 @@ package com.artemnizhnyk.incognitochatapp.api.service;
 import com.artemnizhnyk.incognitochatapp.api.domain.model.Participant;
 import com.artemnizhnyk.incognitochatapp.api.web.dto.ParticipantDto;
 import com.artemnizhnyk.incognitochatapp.api.web.dto.mapper.ParticipantMapper;
-import com.artemnizhnyk.incognitochatapp.api.web.websocket.ParticipantWsController;
+import com.artemnizhnyk.incognitochatapp.api.web.controller.websocket.ParticipantWsController;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.data.redis.core.SetOperations;
