@@ -1,5 +1,6 @@
 package com.artemnizhnyk.incognitochatapp;
 
+import com.artemnizhnyk.incognitochatapp.api.web.controller.rest.ChatRestController;
 import com.artemnizhnyk.incognitochatapp.api.web.controller.websocket.ChatWsController;
 import com.artemnizhnyk.incognitochatapp.config.WebSocketConfig;
 import com.fasterxml.jackson.databind.ObjectMapper;

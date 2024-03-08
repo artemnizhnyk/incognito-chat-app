@@ -96,7 +96,7 @@ public class ChatWsController {
         return FETCH_MESSAGES.replace("{chat_id}", chatId);
     }
 
-    private static String getFetchPersonalMessagesDestination(String chatId, String participantId) {
+    public static String getFetchPersonalMessagesDestination(String chatId, String participantId) {
         return FETCH_PERSONAL_MESSAGES
                 .replace("{chat_id}", chatId)
                 .replace("{participant_id}", participantId);
