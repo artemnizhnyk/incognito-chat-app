@@ -16,7 +16,6 @@ import org.springframework.stereotype.Controller;
 @Controller
 public class ChatWsController {
 
-    private final ParticipantService participantService;
     private final SimpMessagingTemplate messagingTemplate;
 
     public static final String CREATE_CHAT = "/topic/chats.create";

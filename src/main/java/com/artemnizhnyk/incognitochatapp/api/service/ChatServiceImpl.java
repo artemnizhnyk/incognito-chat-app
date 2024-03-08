@@ -9,7 +9,9 @@ import org.springframework.data.redis.core.SetOperations;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.stereotype.Service;
 
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Optional;
 import java.util.UUID;
 import java.util.stream.Stream;
 
@@ -60,6 +62,9 @@ public class ChatServiceImpl implements ChatService {
 
     @Override
     public Stream<Chat> getChats() {
-        return null;
+        return Optional
+                .ofNullable(setOperations.members(KEY))
+                .orElseGet(HashSet::new)
+                .stream();
     }
 }
